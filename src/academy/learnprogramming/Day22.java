@@ -11,11 +11,11 @@ import java.util.Scanner;
     }
     }
 public class Day22 {
-
     public static int getHeight(Node2 root){
-        //Write your code here
-        return 0 ;
+        if (root == null) return -1;
+        return Math.max(getHeight(root.left), getHeight(root.right)) + 1;
     }
+
 
     public static Node2 insert(Node2 root,int data){
         if(root==null){
@@ -34,7 +34,7 @@ public class Day22 {
             return root;
         }
     }
-    public static void main(String args[]){
+    public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
         int T=sc.nextInt();
         Node2 root=null;
