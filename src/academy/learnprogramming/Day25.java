@@ -7,21 +7,26 @@ public class Day25 {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT.
         Your class should be named Solution. */
         Scanner sc = new Scanner(System.in);
-        final int N = sc.nextInt();
+        int N = sc.nextInt();
         for (int i = 0; i < N; i++) {
-            if (isPrime(sc.nextInt()))
-                System.out.println("Prime");
-            else
+            int n = sc.nextInt();
+            int count = 0;
+            if (n == 1) {
                 System.out.println("Not prime");
+            } else {
+                for (int j = 2; j*j <= n; j++) {
+                    if (n % j == 0)
+                        count++;
+
+                }
+                if (count == 0)
+                    System.out.println("Prime");
+                else
+                    System.out.println("Not prime");
+
+            }
         }
-    }
 
-    private static boolean isPrime(int num) {
-        if (num == 1) return false;
-        for (int i = 2; i < Math.sqrt(num); i++)
-            if (num % i == 0) return false;
-        return true;
     }
-
 }
 
